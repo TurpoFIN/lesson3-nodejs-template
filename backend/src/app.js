@@ -61,6 +61,14 @@ publicRouter.get('/chats', listChats);
 // Connect the POST /api/chats endpoint to createChats middleware
 publicRouter.post('/chats', createChat);
 
+const greetHuman = (ctx) => {
+  ctx.body = 'Hello, human!';
+  ctx.status = 200;
+}
+
+// GET /api/greeting
+publicRouter.get('/greeting', greetHuman);
+
 // Add the router middleware to the Koa instance
 app.use(publicRouter.routes());
 
